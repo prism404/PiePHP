@@ -27,9 +27,14 @@ class UserModel
     public function create($newEmail, $newPassword)
     {
         $checkEmail = $this->_connect->prepare("SELECT email FROM users WHERE email = :email");
-            if(mysqli_num_rows($checkEmail)) {
-            exit('This email address is already used!');
-            }
+        $checkEmail->execute(array(
+            "email" => $newEmail
+        ));
+        $array = $checkEmail->fetch();
+        if ($array && count($array) > 0) {
+            echo 'Email address already taken';
+            die();
+        }
 
         $request = $this->_connect->prepare("INSERT INTO `users` (email, password) VALUES (:email, :password)");
         $request->execute(array(
@@ -56,7 +61,8 @@ class UserModel
         return $row;
     }
 
-    public function update($id) {
+    public function update($id)
+    {
         $request = $this->_connect->prepare("UPDATE users SET email = :email, password = :password WHERE id = $id");
         $request->execute(array(
             "email" => $this->_email,
@@ -64,7 +70,7 @@ class UserModel
         ));
     }
 
-    public function delete($id) 
+    public function delete($id)
     {
         $request = $this->_connect->prepare("DELETE FROM `users` WHERE id = $id");
         $request->execute(array(
@@ -72,7 +78,7 @@ class UserModel
         ));
     }
 
-    public function read_all() 
+    public function read_all()
     {
         $request = $this->_connect->prepare("SELECT * FROM users");
         $row = $request->fetchAll();

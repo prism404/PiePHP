@@ -19,14 +19,17 @@ class Request
 
         if (!empty($result)) {
             // process email here
-            filter_var($input, FILTER_SANITIZE_EMAIL);
-            strip_tags($input);
+            $result = filter_var($result, FILTER_SANITIZE_EMAIL);
+            $result = strip_tags($result);
+        } else {
+            return null;
         }
 
-        if (filter_var($input, FILTER_VALIDATE_EMAIL)) {
+        if (filter_var($result, FILTER_VALIDATE_EMAIL)) {
             echo '<p id="invalid">Enter your ' . $input . '</p>';
         } else {
             echo '<p id="invalid">Your ' . $input . ' isnt a valid email address</p>';
+            return null;
         }
 
         return $result;
@@ -39,9 +42,11 @@ class Request
         }
 
         $result = $_POST[$input];
-        if (!empty($_POST[$input])) {
-            strip_tags($input);
-            password_hash($input, PASSWORD_DEFAULT);
+        if (!empty($result)) {
+            strip_tags($result);
+            password_hash($result, PASSWORD_DEFAULT);
+        } else {
+            return null;
         }
 
         return $result;
