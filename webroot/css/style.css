@@ -1,0 +1,10 @@
+.main_home {
+    background-color: rgb(116, 75, 155);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding: 100px;
+    margin: 100px 350px;
+    color: rgb(231, 231, 231);
+}
