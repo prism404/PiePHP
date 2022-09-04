@@ -34,7 +34,8 @@
                         <input type="password" name="password" class="form-control text-light" placeholder="Your password ...">
                     </div>
                     <div class="form-group mt-3">
-                        <button type="submit" class="btn btn-block btn-primary btn-lg"><small><i class="far fa-user pr-2"></i></small>Register</button>
+                    <button type="submit" class="btn btn-block btn-primary btn-lg"><small><i class="far fa-user pr-2"></i></small>Register</button>
+                    <input type="button" class="btn btn-block btn-primary btn-lg" value="Cancel" onclick="history.go(-1)">
                     </div>
                 </form>
             </div>

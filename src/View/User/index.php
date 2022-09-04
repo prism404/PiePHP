@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,12 +10,20 @@
     <link rel="stylesheet" href="webroot/css/login.css">
     <title>Login</title>
 </head>
+
 <body>
 
     <div class="main_container">
         <div class="main_home">
-            <h1>Home</h1>
-            <p></p>
+            <h1 class="fw-bold">Home</h1>
+            <p>We are glad to see you !</p><br>
+            <p>You can now test our CRUD system</p>
+            <div id="crud_btn">
+                <button class="col-6 m-2 btn btn-outline-info">Your Profil</button>
+                <button class="col-6 m-2 btn btn-outline-info">Our Members</button>
+                <button class="col-6 m-2 btn btn-outline-info">Delete your Profil</button>
+                <button class="col-6 m-2 btn btn-outline-info">Update your Profil</button>
+            </div>
         </div>
     </div>
 
